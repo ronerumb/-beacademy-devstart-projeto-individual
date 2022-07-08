@@ -6,9 +6,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
+    public function read(){
         $products = Product::all();
+       
+        return view('product.index',compact('products'));
 
-        dd($products);
+        
     }
+
 }
