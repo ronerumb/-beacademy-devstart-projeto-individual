@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ProductController::class,'read'] );
-  
+Route::get('/cadastro', [ProductController::class,'insert'] );
+Route::post('/cadastro', [ProductController::class,'insert'] );

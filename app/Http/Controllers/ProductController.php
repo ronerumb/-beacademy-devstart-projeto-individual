@@ -10,8 +10,14 @@ class ProductController extends Controller
         $products = Product::all();
        
         return view('product.index',compact('products'));
-
         
+    }
+
+    public function insert(Request $request){
+      $name = $request->name;
+      echo $name;
+        
+        return view('product.insert');
     }
 
 }
