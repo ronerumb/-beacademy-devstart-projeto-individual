@@ -14,10 +14,24 @@ class ProductController extends Controller
     }
 
     public function insert(Request $request){
-      $name = $request->name;
-      echo $name;
+        if(!$request->name){
+           echo 'Incompletos';
+        }else{
+            $product = new Product();
+            $product->name = $request->name;
+            $product->description = $request->description;
+            $product->price = $request->price;
+            $product->quantity = $request->quantity;
+            $product->save();
+     
+        }
+
         
         return view('product.insert');
+    }
+
+    public function update (Request $request,$id){
+        
     }
 
 }

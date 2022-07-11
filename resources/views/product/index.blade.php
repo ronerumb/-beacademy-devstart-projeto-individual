@@ -1,6 +1,10 @@
 @extends('page.estrutura')
 @section('content')
 
+<div class="mb-3" style="margin-top:10px">
+<a href="/cadastro"> <button type="button" class="btn btn-primary">Cadastrar novo produto</button></a>
+</div>
+
 <div class="mb-3">
     <table class="table">
     <thead>
@@ -10,6 +14,7 @@
         <th scope="col">Descrição</th>
         <th scope="col">Preço</th>
         <th scope="col">Quantidade</th>
+        <th scope="col">Ação</th>
       </tr>
     </thead>
     <tbody>
@@ -20,11 +25,14 @@
         <td>{{$product['description']}}</td>
         <td>{{$product['price']}}</td>
         <td>{{$product['quantity']}}</td>
+        <td>Editar / Excluir</td>
+
       </tr>  
       @endforeach   
     </tbody>
   </table>
 </div>
+
 
 
 @endsection

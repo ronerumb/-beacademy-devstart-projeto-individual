@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ProductController::class,'read'] );
 Route::get('/cadastro', [ProductController::class,'insert'] );
 Route::post('/cadastro', [ProductController::class,'insert'] );
+
+Route::put('/edit/{id}', [ProductController::class,'edit'] );
+Route::post('/edit/{id}', [ProductController::class,'edit'] );
