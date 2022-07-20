@@ -25,7 +25,7 @@
         <td>{{$product['description']}}</td>
         <td>{{$product['price']}}</td>
         <td>{{$product['quantity']}}</td>
-        <td>Editar / Excluir</td>
+        <td>  <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary text-white">Editar</a></td>
 
       </tr>  
       @endforeach   

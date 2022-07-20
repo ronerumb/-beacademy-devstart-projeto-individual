@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ProductController::class,'read'] );
+Route::get('/', [ProductController::class,'read'] )->name('product.index');
 Route::get('/cadastro', [ProductController::class,'insert'] );
 Route::post('/cadastro', [ProductController::class,'insert'] );
 
-Route::put('/edit/{id}', [ProductController::class,'edit'] );
-Route::post('/edit/{id}', [ProductController::class,'edit'] );
+Route::get('/show/{id}', [ProductController::class,'show'] )->name('product.show');
+Route::post('/edit/{id}', [ProductController::class,'edit'] )->name('product.edit');
+

@@ -15,22 +15,45 @@ class ProductController extends Controller
 
     public function insert(Request $request){
         if(!$request->name){
-           echo 'Incompletos';
+            return view('product.insert');
         }else{
             $product = new Product();
             $product->name = $request->name;
             $product->description = $request->description;
             $product->price = $request->price;
             $product->quantity = $request->quantity;
-            $product->save();
+            if($product->save()){
+                return redirect()->route('product.index');
+            }
      
         }
-
         
-        return view('product.insert');
+       
     }
 
-    public function update (Request $request,$id){
+    public function show ($id){
+        
+        if($product = Product::find($id)){
+
+            return view('product.edit',compact('product'));
+
+
+        }else{
+           
+        }
+        
+    }
+
+    public function edit (Request $request,$id){
+        $product = Product::find($id);
+        $data = $request->only('name','description','price','quantity');
+        if($product->update($data)){
+          return redirect()->route('product.index');
+        }else{
+            echo "Falha ao editar";
+        }
+
+       
         
     }
 
