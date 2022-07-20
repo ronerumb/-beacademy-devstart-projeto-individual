@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreProductFormRequest;
 
 class ProductController extends Controller
 {
@@ -13,10 +14,12 @@ class ProductController extends Controller
         
     }
 
-    public function insert(Request $request){
-        if(!$request->name){
-            return view('product.insert');
-        }else{
+    public function create(){
+        return view('product.insert');
+    }
+
+    public function insert(StoreProductFormRequest $request){
+       
             $product = new Product();
             $product->name = $request->name;
             $product->description = $request->description;
@@ -26,8 +29,8 @@ class ProductController extends Controller
                 return redirect()->route('product.index');
             }
      
-        }
         
+      
        
     }
 
@@ -44,7 +47,7 @@ class ProductController extends Controller
         
     }
 
-    public function edit (Request $request,$id){
+    public function edit (StoreProductFormRequest $request,$id){
         $product = Product::find($id);
         $data = $request->only('name','description','price','quantity');
         if($product->update($data)){
@@ -55,6 +58,13 @@ class ProductController extends Controller
 
        
         
+    }
+
+    public function delete ($id){
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('product.index');
+
     }
 
 }

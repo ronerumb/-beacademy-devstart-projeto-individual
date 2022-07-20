@@ -1,6 +1,14 @@
 @extends('page.estrutura')
 @section('content')
 
+
+@if($errors->any())
+  @foreach($errors->all() as $erro)
+  {{$erro}}
+  @endforeach
+  @endif
+
+
 <form method="post" action="{{ route('product.edit', $product->id) }}">
     @csrf
     <div class="form-group mb-3">

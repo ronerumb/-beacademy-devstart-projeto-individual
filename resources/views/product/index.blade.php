@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="mb-3" style="margin-top:10px">
-<a href="/cadastro"> <button type="button" class="btn btn-primary">Cadastrar novo produto</button></a>
+<a href={{route('product.create') }}> <button type="button" class="btn btn-primary">Cadastrar novo produto</button></a>
 </div>
 
 <div class="mb-3">
@@ -25,7 +25,9 @@
         <td>{{$product['description']}}</td>
         <td>{{$product['price']}}</td>
         <td>{{$product['quantity']}}</td>
-        <td>  <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary text-white">Editar</a></td>
+        <td>  <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary text-white">Editar</a>
+          <a href="{{ route('product.delete', $product->id) }}" class="btn btn-danger text-white">Excluir</a>
+        </td>
 
       </tr>  
       @endforeach   
