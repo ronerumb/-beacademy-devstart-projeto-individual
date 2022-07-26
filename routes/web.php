@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\LogoutController;
 
 require __DIR__.'/auth.php';
 
@@ -17,6 +18,8 @@ Route::middleware(['auth'])->group(function () {
     
     
     Route::get('/delete/{id}', [ProductController::class,'delete'] )->name('product.delete');
+
+    Route::post('/logout', [LogoutController::class,'logout'] )->name('adm.logout');
 
 
 });

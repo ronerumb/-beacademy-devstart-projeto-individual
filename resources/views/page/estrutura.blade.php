@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
 </head>
 <body>
-
+  @if(Auth::user())
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,8 +20,22 @@
               <a class="nav-link" href="#">Produtos</a>
             </li>           
           </ul>
+            
+          <ul class="navbar-nav">
+            <li class="nav-item">
+             <form action="{{ route('adm.logout')}}" method="post">
+              @csrf
+              <input type="submit" value="Sair">
+            
+            </form>
+            </li>           
+          </ul>
+          
         </div>
       </nav>
+      @endif
+
+     
 
       <div class="container">
       @yield('content')
