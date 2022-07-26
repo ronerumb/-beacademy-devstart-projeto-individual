@@ -26,7 +26,11 @@ class StoreProductFormRequest extends FormRequest
 
         if($this->method('POST')){
        
-            $rules['name'] =['required','string','min:10'];
+            $rules['name'] =['required','string','min:3'];
+            $rules['description'] =['required','string'];
+            $rules['price'] =['required'];
+            $rules['quantity'] =['required'];
+            
         }
 
         return $rules;
