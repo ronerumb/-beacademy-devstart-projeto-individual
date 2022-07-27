@@ -33,7 +33,7 @@
           
         </div>
       </nav>
-      @endif
+     
 
      
 
@@ -41,6 +41,6 @@
       @yield('content')
     </div>
   
-    
+    @endif
 </body>
 </html>
